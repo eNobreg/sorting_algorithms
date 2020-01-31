@@ -12,13 +12,11 @@ void selection_sort(int *array, size_t size)
 	size_t min = 0; 
 	int temp = 0;
 
-	if (size == 2 && array[i] > array[i + 1])
+	if (size == 1)
 	{
-		temp = array[i];
-		array[i] = array[i + 1];
-		array[i + 1] = temp;
+		return;
 	}
-	else: 
+	else
 		for (i = 0; i < size; i++)
 		{
 			min = i;
