@@ -1,6 +1,7 @@
 #include "sort.h"
 int partition(int *array, int start, int end, int size);
 void quicksort(int *array, int start, int end, int size);
+void swap(int *array, int *a, int* b, int size);
 
 /**
  * quick_sort - Implementation of quick sort
@@ -35,6 +36,24 @@ void quicksort(int *array, int start, int end, int size)
 }
 
 /**
+ * swap - recursive function for quicksort
+ * @array: Array to start
+ * @a: Index to swap
+ * @b: Index to swap
+ * @size: Size of the whole array
+ * Return: None
+ */
+void swap(int *array, int *a, int* b, int size)
+{
+	int temp = 0;
+	temp = *a;
+	*a = *b;
+	*b = temp;
+	if (*a != *b)
+		print_array(array, size);
+}
+
+/**
  * partition - recursive function for quicksort
  * @array: Array to start
  * @start: Start of the array segment
@@ -45,24 +64,17 @@ void quicksort(int *array, int start, int end, int size)
 int partition(int *array, int start, int end, int size)
 {
 	int pivot = array[end], i;
-	size_t temp;
 	size_t subIndex = start;
 
 	for (i = start; i < end; i++)
 	{
 		if (array[i] <= pivot)
 		{
-			temp = array[i];
-			array[i] = array[subIndex];
-			array[subIndex] = temp;
-			print_array(array, size);
+			swap(array, &array[i], &array[subIndex], size);
 			subIndex++;
 		}
 		
 	}
-	temp = array[subIndex];
-	array[subIndex] = array[end];
-	array[end] = temp;
-	print_array(array, size);
+	swap(array, &array[subIndex], &array[end], size);
 	return subIndex;
 }
