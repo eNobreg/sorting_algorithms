@@ -6,12 +6,11 @@ void swap_helper(listint_t *current, listint_t *move);
  * insertion_sort_list - A type of sorting algorithm
  * @list: The list of nodes to be sorted
  */
-
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *current = NULL, *end = NULL, *move = NULL;
 
-	if ((*list == NULL) || ((*list)->next == NULL))
+	if (list || ((*list == NULL) || ((*list)->next == NULL)))
 		return;
 
 	current = (*list)->next;
@@ -42,7 +41,7 @@ void insertion_sort_list(listint_t **list)
 
 /**
  * swap_helper - Swaps the position of two nodes
- * @currrent: The node to swap forward
+ * @current: The node to swap forward
  * @move: The node to swap backward
  */
 void swap_helper(listint_t *current, listint_t *move)
@@ -59,4 +58,3 @@ void swap_helper(listint_t *current, listint_t *move)
 		hold_f->next = current;
 	move->prev = current;
 }
-
