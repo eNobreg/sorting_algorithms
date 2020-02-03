@@ -8,14 +8,14 @@
  */
 void shell_sort(int *array, size_t size)
 {
-	int temp = 0, flag = 0;
+	int temp = 0;
 	size_t i = 0, j = 0;
 	size_t gap = 0;
 
-	if (array == NULL || size <= 2)
+	if (array == NULL || size < 2)
 		return;
 
-	for (gap = 1; gap < size; gap = gap * 3 + 1) /* Def gap based on arr size */
+	for (gap = 1; gap < (size / 3); gap = gap * 3 + 1) /* Def gap based on arr size */
 		;
 
 	while (gap > 0)
@@ -26,12 +26,10 @@ void shell_sort(int *array, size_t size)
 			for (j = i; j >= gap && array[j - gap] > temp; j -= gap)
 			{
 				array[j] = array[j - gap]; /* Swap val before gap with after the gap */
-				flag = 1;
 			}
 			array[j] = temp;
 		}
-		gap /= 3; /* Divide the gap by three and start again */
-		if (flag == 1) /* If there was a swap */
-			print_array(array, size);
+		gap = (gap - 1) / 3; /* Divide the gap by three and start again */
+		print_array(array, size);
 	}
 }
