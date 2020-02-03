@@ -1,7 +1,7 @@
 #include "sort.h"
 int partition(int *array, int start, int end, int size);
 void quicksort(int *array, int start, int end, int size);
-void swap(int *array, int *a, int* b, int size);
+void swap(int *array, int *a, int *b, int size);
 
 /**
  * quick_sort - Implementation of quick sort
@@ -26,12 +26,13 @@ void quicksort(int *array, int start, int end, int size)
 {
 
 	int j = 0;
+
 	if (start < end)
 	{
 		j = partition(array, start, end, size);
 		quicksort(array, start, j - 1, size);
 		quicksort(array, j + 1, end, size);
-	
+
 	}
 }
 
@@ -43,9 +44,10 @@ void quicksort(int *array, int start, int end, int size)
  * @size: Size of the whole array
  * Return: None
  */
-void swap(int *array, int *a, int* b, int size)
+void swap(int *array, int *a, int *b, int size)
 {
 	int temp = 0;
+
 	temp = *a;
 	*a = *b;
 	*b = temp;
@@ -73,8 +75,8 @@ int partition(int *array, int start, int end, int size)
 			swap(array, &array[i], &array[subIndex], size);
 			subIndex++;
 		}
-		
+
 	}
 	swap(array, &array[subIndex], &array[end], size);
-	return subIndex;
+	return (subIndex);
 }
