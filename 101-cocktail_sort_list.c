@@ -15,7 +15,7 @@ void cocktail_sort_list(listint_t **list)
 	listint_t *move = NULL, *current = NULL;
 	size_t count = 0;
 
-	if ((*list == NULL) || ((*list)->next == NULL))
+	if (!list || ((*list == NULL) || ((*list)->next == NULL)))
 		return;
 
 	front = *list;
