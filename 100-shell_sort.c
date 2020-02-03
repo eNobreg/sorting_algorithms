@@ -12,7 +12,7 @@ void shell_sort(int *array, size_t size)
 	size_t i = 0, j = 0;
 	size_t gap = 0;
 
-	if (size < 2 || array == NULL)
+	if (array == NULL || size <= 2)
 		return;
 
 	for (gap = 1; gap < size; gap = gap * 3 + 1) /* Def gap based on arr size */
