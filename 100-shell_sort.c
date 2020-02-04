@@ -15,7 +15,7 @@ void shell_sort(int *array, size_t size)
 	if (array == NULL || size < 2)
 		return;
 
-	for (gap = 1; gap < (size / 3); gap = gap * 3 + 1) /* Def gap based on arr size */
+	for (gap = 1; gap < (size / 3); gap = gap * 3 + 1) /* Def gap on arr size */
 		;
 
 	while (gap > 0)
