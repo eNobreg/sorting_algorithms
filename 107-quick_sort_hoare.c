@@ -11,8 +11,9 @@ void swap(int *array, int *a, int *b, int size);
  */
 void quick_sort_hoare(int *array, size_t size)
 {
-	if (array != NULL || size >= 2)
-		quicksort(array, 0, size - 1, size);
+	if (array == NULL || size < 2)
+		return;
+	quicksort(array, 0, size - 1, size);
 }
 
 /**
@@ -52,8 +53,7 @@ void swap(int *array, int *a, int *b, int size)
 	temp = *a;
 	*a = *b;
 	*b = temp;
-	if (*a != *b)
-		print_array(array, size);
+	print_array(array, size);
 }
 
 /**
