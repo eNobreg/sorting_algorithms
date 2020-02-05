@@ -12,7 +12,7 @@ void copy(int *arr, int *temp, size_t size);
  */
 void merge_sort(int *array, size_t size)
 {
-	int *new_array = malloc(sizeof(size_t) * size);
+	int *new_array = malloc(sizeof(int) * size + 1);
 
 	if (new_array == NULL)
 		return;
@@ -97,7 +97,7 @@ void copy(int *arr, int *temp, size_t size)
 {
 	size_t i = 0;
 
-	for (i = 0; i < size; i++)
+	for (i = 0; i <= size; i++)
 		arr[i] = temp[i];
 }
 
