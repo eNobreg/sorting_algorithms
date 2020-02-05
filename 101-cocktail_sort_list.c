@@ -1,5 +1,4 @@
 #include "sort.h"
-#include <stdio.h>
 
 void swap_helper(listint_t *left, listint_t *right);
 listint_t *pointers_helper(size_t type, size_t place, listint_t **list);
@@ -50,7 +49,7 @@ void cocktail_sort_list(listint_t **list)
 		while (current != front)
 		{
 			move = current->prev;
-			if (current->n >= move->n)
+			if (move && current->n >= move->n)
 			{
 				current = move;
 				move = current->prev;
@@ -69,8 +68,6 @@ void cocktail_sort_list(listint_t **list)
 		if (swap == 0)
 			return;
 		front = pointers_helper(0, count, list);
-		front = front->next;
-
 		count++;
 	}
 }
@@ -120,7 +117,7 @@ listint_t *pointers_helper(size_t type, size_t place, listint_t **list)
 	else
 	{
 		count = 0;
-		while (count != place)
+		while (count != place + 1)
 		{
 			placement = placement->next;
 			count++;
