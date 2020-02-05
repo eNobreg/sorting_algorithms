@@ -38,6 +38,8 @@ void cocktail_sort_list(listint_t **list)
 			if (move && current->n > move->n)
 			{
 				swap_helper(current, move);
+				if (move->prev == NULL)
+					*list = move;
 				print_list(*list);
 				swap = 1;
 			}
